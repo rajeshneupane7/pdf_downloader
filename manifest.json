@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "PDF Downloader",
+  "version": "1.0",
+  "description": "Find and download all PDFs on the current page",
+  "permissions": [
+    "downloads",
+    "scripting",
+    "activeTab"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ]
+}
